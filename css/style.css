@@ -82,6 +82,7 @@ p:last-child { margin-bottom: 0; }
 .filter-panel > .btn { margin-top: 1rem; }
 .results-status { margin-bottom: 1rem; }
 .empty-results { margin-top: 1rem; }
+.menu-help { margin-top: 1rem; margin-bottom: 0; }
 
 /* Both button variants use the same campus palette. */
 .btn-primary {

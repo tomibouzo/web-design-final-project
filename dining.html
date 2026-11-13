@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
+  <script src="js/dining.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -31,11 +32,26 @@
     <div class="row g-4">
       <div class="col-lg-8">
         <section aria-labelledby="menu-heading">
-          <div class="section-heading"><div><p class="eyebrow">At the dining hall</p><h2 id="menu-heading">A taste of the menu</h2></div><span class="small-note">Sample lunch</span></div>
-          <div class="row g-3">
+          <div class="section-heading"><div><p class="eyebrow">At the dining hall</p><h2 id="menu-heading">A taste of the menu</h2></div><span id="menu-selection" class="small-note">Sample lunch</span></div>
+          <!-- JavaScript reveals controls only after the sample menu is ready. -->
+          <form id="menu-controls" class="panel filter-panel" role="search" aria-label="Browse the sample menu" hidden>
+            <div class="row g-3">
+              <div class="col-sm-6"><label for="menu-date" class="form-label">Date</label><input id="menu-date" class="form-control" type="date" aria-describedby="menu-date-help" aria-controls="menu-results" required></div>
+              <div class="col-sm-6"><label for="menu-meal" class="form-label">Meal</label><select id="menu-meal" class="form-select" aria-controls="menu-results"><option value="breakfast">Breakfast</option><option value="lunch" selected>Lunch</option><option value="dinner">Dinner</option></select></div>
+              <div class="col-12"><label for="menu-search" class="form-label">Search this meal</label><input id="menu-search" class="form-control" type="search" placeholder="Food, ingredient, or station" aria-controls="menu-results"></div>
+            </div>
+            <p id="menu-date-help" class="small-note menu-help">Choose today or one of the next two days to explore example meals.</p>
+            <button id="menu-clear" type="button" class="btn btn-outline-primary">Clear search</button>
+          </form>
+          <p id="menu-status" class="small-note results-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+          <div id="menu-results" class="row g-3">
             <div class="col-md-6"><article class="card menu-card h-100"><div class="menu-image" aria-hidden="true">Food image placeholder</div><div class="card-body"><span class="category-label">Main station</span><h3>Grilled chicken bowl</h3><p>Rice, roasted vegetables, and grilled chicken with a choice of dressing.</p></div></article></div>
             <div class="col-md-6"><article class="card menu-card h-100"><div class="menu-image" aria-hidden="true">Food image placeholder</div><div class="card-body"><span class="category-label">Garden station</span><h3>Roasted vegetable pasta</h3><p>Pasta tossed with seasonal vegetables and a tomato sauce.</p></div></article></div>
           </div>
+          <p id="menu-empty" class="panel status-note empty-results" hidden></p>
+          <!-- New results reuse this card structure; menu text is inserted as text. -->
+          <template id="menu-item-template"><div class="col-md-6"><article class="card menu-card h-100"><div class="menu-image" aria-hidden="true">Food image placeholder</div><div class="card-body"><span class="category-label"></span><h3></h3><p></p></div></article></div></template>
+          <noscript><p class="status-note section-space">A sample lunch is shown. Turn on JavaScript to browse other dates and meals or search the menu.</p></noscript>
           <p class="status-note section-space">For ingredients, allergens, or dietary questions, ask dining staff directly.</p>
         </section>
       </div>

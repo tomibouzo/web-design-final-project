@@ -4,12 +4,12 @@ Campus Connect is a general-campus student website for finding announcements, ev
 
 ## Current progress
 
-The Unit 12 draft now includes the page layouts, shared navigation, responsive styling, expandable event details, and event/service filtering. API integration and other MVP work are still in progress. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples.
+The Unit 12 draft now includes the page layouts, shared navigation, responsive styling, expandable event details, event/service filtering, and a sample dining-menu browser. API integration and other MVP work are still in progress. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples.
 
 | Page | Available now | Next steps |
 | --- | --- | --- |
 | Home (`index.html`) | Announcements, searchable/filterable event cards with expandable details, weather placeholder, dining/support shortcuts | Live weather |
-| Dining (`dining.html`) | Sample meals and example dining hours | Sample menu controls and search; investigate an actual menu source |
+| Dining (`dining.html`) | Three-day sample menu with date/meal selection, menu search, and example dining hours | Investigate an actual menu source |
 | Campus Support (`support.html`) | Searchable/filterable example service directory and disabled contact-form layout | Department selection and initial EmailJS setup |
 
 ## Technologies
@@ -30,6 +30,7 @@ No build system or package installation is needed to run this draft. Official Bo
 4. Select **View details** on a Home event to expand its description; select **Hide details** to close it.
 5. Enter an event/service title, location, or keyword in the search field and optionally choose a category. Results must match both controls. Search ignores case and extra spaces; when several words are entered, every word must appear in the item's searchable content.
 6. Read the result count or no-match message. Select **Clear filters** to show the full list and return focus to the search field. Without JavaScript, all cards remain readable and the filter controls are hidden.
+7. On Dining, choose today or one of the next two dates and select breakfast, lunch, or dinner. Search the selected meal by food, ingredient, or station. **Clear search** keeps the chosen meal and date. These dates organize sample meals only; they do not represent an actual university schedule. Without JavaScript, the original sample lunch remains visible.
 
 For an HTTP preview with Python installed, run `python -m http.server 8000` from the repository folder and open `http://localhost:8000`. Stop the server with Ctrl+C.
 
@@ -41,6 +42,7 @@ dining.html
 support.html
 css/style.css
 js/script.js
+js/dining.js
 images/
 ```
 
@@ -50,7 +52,6 @@ The site has not been deployed yet. Once the MVP is reviewed and its branch is m
 
 ## Remaining MVP work
 
-- Add dining controls using clearly labeled sample data.
 - Integrate live weather and handle loading and request failures.
 - Begin EmailJS configuration and contact handling without claiming an unsent message was delivered.
 - Verify all three pages on desktop and mobile, update documentation, and deploy after review.
