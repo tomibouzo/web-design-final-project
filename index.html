@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
+  <script src="js/weather.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -95,12 +96,21 @@
       </div>
 
       <div class="col-lg-4">
-        <!-- Weather is a placeholder until the live integration is added. -->
-        <section class="panel" aria-labelledby="weather-heading">
+        <!-- Live model-based weather is separate from the sample campus content. -->
+        <section id="weather-panel" class="panel" aria-labelledby="weather-heading">
           <p class="eyebrow">Before you head out</p>
           <h2 id="weather-heading">Campus weather</h2>
-          <div class="weather-placeholder" aria-hidden="true">--&deg;</div>
-          <p class="status-note">Weather information is not available yet.</p>
+          <p class="small-note">Lynchburg, Virginia</p>
+          <div id="weather-details" hidden>
+            <p id="weather-temperature" class="weather-temperature"></p>
+            <p id="weather-condition"></p>
+            <p id="weather-feels" class="small-note"></p>
+            <p id="weather-wind" class="small-note"></p>
+            <p class="small-note">Conditions for <time id="weather-time"></time></p>
+          </div>
+          <p id="weather-status" class="status-note" role="status" aria-live="polite" aria-atomic="true">Turn on JavaScript to load weather.</p>
+          <button id="weather-refresh" class="btn btn-outline-primary" type="button" hidden>Refresh weather</button>
+          <p class="small-note weather-credit">Weather data by <a href="https://open-meteo.com/">Open-Meteo</a> &middot; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.<br>Model estimates; temperatures rounded.</p>
         </section>
         <section class="panel section-space quick-links" aria-labelledby="quick-links-heading">
           <p class="eyebrow">One less thing to look for</p>

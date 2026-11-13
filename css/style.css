@@ -65,7 +65,8 @@ p:last-child { margin-bottom: 0; }
 .category-label { display: inline-block; color: var(--campus-green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
 .event-meta { margin-bottom: 0.7rem; }
 .event-details { border-top: 1px solid var(--campus-line); margin-top: 1rem; padding-top: 1rem; font-size: 0.9rem; }
-.weather-placeholder { font-size: 3.7rem; line-height: 1.1; font-weight: 700; margin: 1.2rem 0; color: #8b9a8d; }
+.weather-temperature { font-size: 3.7rem; line-height: 1.1; font-weight: 700; margin: 1.2rem 0; }
+.weather-credit { margin-top: 1.2rem; }
 .quick-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-decoration: none; padding: 1rem 0; border-top: 1px solid var(--campus-line); }
 .quick-link:hover strong { text-decoration: underline; }
 .quick-link strong, .quick-link small { display: block; }
