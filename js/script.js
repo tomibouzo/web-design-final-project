@@ -76,11 +76,3 @@ detailButtons.forEach((button) => {
     button.textContent = isExpanded ? "View details" : "Hide details";
   });
 });
-
-// Guard the unfinished contact form against accidental submission or reloads.
-const contactForm = document.getElementById("contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-}

@@ -4,13 +4,13 @@ Campus Connect is a general-campus student website for finding announcements, ev
 
 ## Current progress
 
-The Unit 12 draft now includes the page layouts, shared navigation, responsive styling, expandable event details, event/service filtering, a sample dining-menu browser, and live weather. Contact-form setup and final MVP checks are still in progress. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples.
+The Unit 12 draft now includes the page layouts, shared navigation, responsive styling, expandable event details, event/service filtering, a sample dining-menu browser, and live weather. The contact form includes validation and initial EmailJS setup in demo mode; final MVP checks are still in progress. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples.
 
 | Page | Available now | Next steps |
 | --- | --- | --- |
 | Home (`index.html`) | Announcements, searchable/filterable event cards with expandable details, live Lynchburg weather, dining/support shortcuts | Final MVP review |
 | Dining (`dining.html`) | Three-day sample menu with date/meal selection, menu search, and example dining hours | Investigate an actual menu source |
-| Campus Support (`support.html`) | Searchable/filterable example service directory and disabled contact-form layout | Department selection and initial EmailJS setup |
+| Campus Support (`support.html`) | Searchable/filterable service directory, department selection, validated demo contact form, initial EmailJS setup | Connect verified EmailJS account and recipients |
 
 ## Technologies
 
@@ -47,6 +47,22 @@ Home requests current model-based weather from [Open-Meteo](https://open-meteo.c
 
 Weather was checked in Chrome with simulated responses for loading, successful readings, invalid data, network/HTTP errors, timeout/retry, keyboard use, and desktop/mobile layouts. The live endpoint could not be verified in the development environment because its hostname could not be resolved. Confirm real readings through Live Server or GitHub Pages before submission.
 
+## Contact form and initial EmailJS setup
+
+On Campus Support, choose **Contact Financial Aid** or **Contact Writing Center** to select that department and focus the form. You can also choose a department directly. Enter your name, email address, subject, and message, then select **Check message**. All fields are required; whitespace-only entries and invalid email addresses are rejected. Length limits are 100 characters for name, 254 for email, 150 for subject, and 2,000 for message.
+
+**The committed configuration is demo mode. Nothing is sent or stored.** Successful validation says the message passes the checks, not that it was delivered. Without JavaScript, the form stays disabled and the service directory remains readable.
+
+Initial integration uses the official [EmailJS REST send API](https://www.emailjs.com/docs/rest-api/send/), so no SDK download is needed. To connect delivery later:
+
+1. Create an EmailJS account, connect an email service, and create one template per department. Use verified recipient addresses fixed in those templates. While developing, use your own verified test inbox instead of campus offices.
+2. The templates use `department`, `from_name`, `reply_to`, `subject`, and `message`. Set the template's Reply-To field to `{{reply_to}}`; keep the connected service's sender address.
+3. In `js/contact-config.js`, fill in `publicKey`, `serviceId`, and the two `templateIds`. These identifiers are public. Never place a private key or email password in browser files. Keep `enabled: false` until setup is verified.
+4. Configure allowed origins in EmailJS for your local HTTP preview and deployed site. Use Live Server or another HTTP server for testing.
+5. When ready to enable sending, set `enabled: true` with all identifiers filled in. The form then labels its action **Send message** and explains that data goes through EmailJS. Verify delivery to the test inbox before using real department recipients.
+
+While sending, inputs are disabled to avoid concurrent submissions. An accepted response is distinguished from a read confirmation. Failure/timeout preserves the draft and never automatically retries, because delivery can be uncertain. The page does not keep messages in local storage. EmailJS account configuration and real delivery remain unverified; all development send-path tests use simulated responses and send no email.
+
 ## Project files
 
 ```text
@@ -57,6 +73,8 @@ css/style.css
 js/script.js
 js/dining.js
 js/weather.js
+js/contact-config.js
+js/contact.js
 images/
 ```
 
@@ -66,7 +84,7 @@ The site has not been deployed yet. Once the MVP is reviewed and its branch is m
 
 ## Remaining MVP work
 
-- Begin EmailJS configuration and contact handling without claiming an unsent message was delivered.
+- Verify and connect an EmailJS account and department recipients when ready; the MVP currently uses demo mode.
 - Verify all three pages on desktop and mobile, update documentation, and deploy after review.
 
 The final-project overview differs on whether one or two APIs are required. We are planning weather and EmailJS, but the eligibility of a sending-only integration under the two-real-time-API wording remains to be confirmed.
