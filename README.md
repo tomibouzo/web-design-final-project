@@ -4,11 +4,11 @@ Campus Connect is a general-campus student website for finding announcements, ev
 
 ## Current progress
 
-The Unit 12 draft now includes the page layouts, shared navigation, responsive styling, expandable event details, event/service filtering, a sample dining-menu browser, and live weather. The contact form includes validation and initial EmailJS setup in demo mode; final MVP checks are still in progress. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples.
+The Unit 12 MVP has completed its local review and is ready for branch review and deployment. It includes shared navigation, responsive styling, expandable event details, event/service filtering, a sample dining-menu browser, and an Open-Meteo weather integration. The contact form includes validation and initial EmailJS setup in demo mode. All campus announcements, events, meals, office locations, and opening hours are clearly labeled examples. Live weather readings and the deployed site still need verification on an unrestricted connection.
 
 | Page | Available now | Next steps |
 | --- | --- | --- |
-| Home (`index.html`) | Announcements, searchable/filterable event cards with expandable details, live Lynchburg weather, dining/support shortcuts | Final MVP review |
+| Home (`index.html`) | Announcements, searchable/filterable event cards with expandable details, Lynchburg weather integration, dining/support shortcuts | Confirm live readings after deployment |
 | Dining (`dining.html`) | Three-day sample menu with date/meal selection, menu search, and example dining hours | Investigate an actual menu source |
 | Campus Support (`support.html`) | Searchable/filterable service directory, department selection, validated demo contact form, initial EmailJS setup | Connect verified EmailJS account and recipients |
 
@@ -24,7 +24,7 @@ No build system or package installation is needed to run this draft. Official Bo
 
 ## Preview locally
 
-1. Clone this repository and open its folder in VS Code.
+1. Clone this repository and open its folder in VS Code. To review the unmerged MVP, use the `week-2-mvp` branch.
 2. Open `index.html` in your browser, or use VS Code's Live Server extension if already installed.
 3. Use Home, Dining, and Campus Support in the navigation to move between pages.
 4. Select **View details** on a Home event to expand its description; select **Hide details** to close it.
@@ -33,6 +33,15 @@ No build system or package installation is needed to run this draft. Official Bo
 7. On Dining, choose today or one of the next two dates and select breakfast, lunch, or dinner. Search the selected meal by food, ingredient, or station. **Clear search** keeps the chosen meal and date. These dates organize sample meals only; they do not represent an actual university schedule. Without JavaScript, the original sample lunch remains visible.
 
 For an HTTP preview with Python installed, run `python -m http.server 8000` from the repository folder and open `http://localhost:8000`. Stop the server with Ctrl+C.
+
+```bash
+git clone https://github.com/tomibouzo/web-design-final-project.git
+cd web-design-final-project
+git switch week-2-mvp
+code .
+```
+
+After the MVP is merged, use `main` for the published version.
 
 ## Weather integration
 
@@ -80,12 +89,28 @@ images/
 
 ## Deployment
 
-The site has not been deployed yet. Once the MVP is reviewed and its branch is merged, publish the repository root from `main` using GitHub Pages. The repository and verified deployed URL will be the two Unit 12 submission links. Relative asset and navigation paths support hosting under this repository's Pages path.
+The site has not been deployed yet. Publishing is a separate step after branch review:
 
-## Remaining MVP work
+1. Push `week-2-mvp` when ready and review its changes on GitHub.
+2. Merge the reviewed branch into `main`. Keep its individual commits when merging so the progress history remains visible.
+3. In the repository, open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/(root)`, and save.
+4. Wait for the Pages deployment to finish; check the repository's **Actions** tab if it fails.
+5. Open the URL shown in Pages settings and repeat the [deployment checks](docs/mvp-review.md#before-submission). Navigate to all three pages and refresh Dining and Campus Support directly.
 
-- Verify and connect an EmailJS account and department recipients when ready; the MVP currently uses demo mode.
-- Verify all three pages on desktop and mobile, update documentation, and deploy after review.
+These settings follow the [GitHub Pages publishing-source guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Relative asset and navigation paths support hosting under this repository's Pages path. No build command is needed.
+
+The two Unit 12 submission links are:
+
+- Repository: https://github.com/tomibouzo/web-design-final-project
+- Expected Pages address: https://tomibouzo.github.io/web-design-final-project/ — **not deployed or verified yet**. Submit the address confirmed in Pages settings after it works.
+
+## Local review and remaining steps
+
+All three pages passed local Chrome checks at desktop, tablet, and phone widths (1440, 768, 390, and 320 pixels), including navigation, Bootstrap assets, form labels, keyboard interactions, and the feature-specific checks described in [MVP review notes](docs/mvp-review.md). These checks do not constitute a complete WCAG audit. Localhost access and live API requests were blocked in the review environment; browser checks used local files and simulated API responses.
+
+- Push, review, merge, and deploy when authorized, then confirm the public site and real weather response before submission.
+- EmailJS delivery can remain in demo mode for this MVP, which permits initial API setup. Configure and verify the account and recipients before enabling actual delivery.
+- Complete the remaining final-project work and reach at least 10 meaningful commits by Unit 14. This MVP uses six progress commits, in addition to the repository's initial commit; further commits should document actual improvements and review feedback.
 
 The final-project overview differs on whether one or two APIs are required. We are planning weather and EmailJS, but the eligibility of a sending-only integration under the two-real-time-API wording remains to be confirmed.
 
