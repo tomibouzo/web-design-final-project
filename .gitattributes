@@ -1,0 +1,3 @@
+# Keep the official Bootstrap downloads byte-for-byte unchanged on checkout.
+css/vendor/bootstrap.min.css -text
+js/vendor/bootstrap.bundle.min.js -text

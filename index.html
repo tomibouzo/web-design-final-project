@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find campus announcements, upcoming events, dining information, and student support in one place.">
+  <title>Home | Campus Connect</title>
+  <link rel="icon" href="data:,">
+  <!-- Bootstrap loads first so our stylesheet can customize its defaults. -->
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- Keep the same navigation and page names across all three pages. -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-brand" href="index.html">Campus<span>Connect</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="support.html">Campus Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container page-content" tabindex="-1">
+    <div class="page-heading">
+      <p class="eyebrow">A little less searching. A little more campus.</p>
+      <h1>Your campus today</h1>
+      <p class="page-intro">Catch up on announcements, find something to do, and get where you need to go.</p>
+    </div>
+    <p class="sample-notice"><span class="badge rounded-pill sample-badge">Sample campus</span> Announcements, events, and office information are examples.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <section class="panel announcement-panel" aria-labelledby="announcements-heading">
+          <p class="eyebrow">Around campus</p>
+          <h2 id="announcements-heading">Announcements</h2>
+          <article>
+            <h3>Make time for your next semester</h3>
+            <p>Meet with your advisor to talk through your course choices and questions before registration.</p>
+            <a class="text-link" href="support.html">Find academic support <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </section>
+
+        <!-- Example events establish the layout before search and filters are added. -->
+        <section class="section-space" aria-labelledby="events-heading">
+          <div class="section-heading">
+            <div><p class="eyebrow">Find your people</p><h2 id="events-heading">Upcoming events</h2></div>
+            <span class="small-note">Sample events</span>
+          </div>
+          <article class="card event-card">
+            <div class="event-image" aria-hidden="true"><span>Event image placeholder</span></div>
+            <div class="card-body">
+              <span class="category-label">Campus life</span>
+              <h3>Student organization fair</h3>
+              <p class="event-meta">Thursday, 5:00 PM &middot; Student Center</p>
+              <p>Meet campus clubs and find a group that shares your interests.</p>
+              <button type="button" class="btn btn-outline-primary" data-details-toggle aria-expanded="false" aria-controls="organization-details">View details</button>
+              <div id="organization-details" class="event-details" hidden>
+                <p>Stop by the sample club tables, ask questions, and learn how to get involved. No registration is needed for this example event.</p>
+              </div>
+            </div>
+          </article>
+          <article class="card event-card">
+            <div class="event-image event-image-secondary" aria-hidden="true"><span>Event image placeholder</span></div>
+            <div class="card-body">
+              <span class="category-label">Academic</span>
+              <h3>Study together</h3>
+              <p class="event-meta">Friday, 3:00 PM &middot; Library</p>
+              <p>Bring your notes and work through your next assignment with other students.</p>
+              <button type="button" class="btn btn-outline-primary" data-details-toggle aria-expanded="false" aria-controls="study-details">View details</button>
+              <div id="study-details" class="event-details" hidden>
+                <p>This example is an informal study session. Bring your own materials and choose a quiet table with your group.</p>
+              </div>
+            </div>
+          </article>
+          <noscript><p class="status-note">Turn on JavaScript to expand event details. Event summaries are available above.</p></noscript>
+        </section>
+      </div>
+
+      <div class="col-lg-4">
+        <!-- Weather is a placeholder until the live integration is added. -->
+        <section class="panel" aria-labelledby="weather-heading">
+          <p class="eyebrow">Before you head out</p>
+          <h2 id="weather-heading">Campus weather</h2>
+          <div class="weather-placeholder" aria-hidden="true">--&deg;</div>
+          <p class="status-note">Weather information is not available yet.</p>
+        </section>
+        <section class="panel section-space quick-links" aria-labelledby="quick-links-heading">
+          <p class="eyebrow">One less thing to look for</p>
+          <h2 id="quick-links-heading">Quick links</h2>
+          <a class="quick-link" href="dining.html"><span><strong>What’s on the menu?</strong><small>Meals and dining hours</small></span><span aria-hidden="true">&rarr;</span></a>
+          <a class="quick-link" href="support.html"><span><strong>Find a helping hand</strong><small>Services and staff contacts</small></span><span aria-hidden="true">&rarr;</span></a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><p><strong>Campus Connect</strong><br>A place to find your way around campus.</p><p class="small-note">Student project &middot; Sample campus content</p></div>
+  </footer>
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
+</body>
+</html>
