@@ -47,39 +47,50 @@
           </article>
         </section>
 
-        <!-- Example events establish the layout before search and filters are added. -->
+        <!-- Search and category controls filter these sample events on this page. -->
         <section class="section-space" aria-labelledby="events-heading">
           <div class="section-heading">
             <div><p class="eyebrow">Find your people</p><h2 id="events-heading">Upcoming events</h2></div>
             <span class="small-note">Sample events</span>
           </div>
-          <article class="card event-card">
+          <form id="event-filters" class="panel filter-panel" role="search" aria-label="Filter campus events" hidden>
+            <div class="row g-3 align-items-end">
+              <div class="col-sm-7"><label class="form-label" for="event-search">Search events</label><input id="event-search" class="form-control" type="search" placeholder="Event, location, or keyword" aria-controls="event-results"></div>
+              <div class="col-sm-5"><label class="form-label" for="event-category">Category</label><select id="event-category" class="form-select" aria-controls="event-results"><option value="all">All categories</option><option value="campus-life">Campus life</option><option value="academic">Academic</option></select></div>
+            </div>
+            <button id="event-clear" class="btn btn-outline-primary" type="button">Clear filters</button>
+          </form>
+          <p id="event-status" class="small-note results-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+          <div id="event-results">
+          <article class="card event-card" data-category="campus-life">
             <div class="event-image" aria-hidden="true"><span>Event image placeholder</span></div>
             <div class="card-body">
               <span class="category-label">Campus life</span>
               <h3>Student organization fair</h3>
-              <p class="event-meta">Thursday, 5:00 PM &middot; Student Center</p>
-              <p>Meet campus clubs and find a group that shares your interests.</p>
+              <p class="event-meta" data-searchable>Thursday, 5:00 PM &middot; Student Center</p>
+              <p data-searchable>Meet campus clubs and find a group that shares your interests.</p>
               <button type="button" class="btn btn-outline-primary" data-details-toggle aria-expanded="false" aria-controls="organization-details">View details</button>
               <div id="organization-details" class="event-details" hidden>
-                <p>Stop by the sample club tables, ask questions, and learn how to get involved. No registration is needed for this example event.</p>
+                <p data-searchable>Stop by the sample club tables, ask questions, and learn how to get involved. No registration is needed for this example event.</p>
               </div>
             </div>
           </article>
-          <article class="card event-card">
+          <article class="card event-card" data-category="academic">
             <div class="event-image event-image-secondary" aria-hidden="true"><span>Event image placeholder</span></div>
             <div class="card-body">
               <span class="category-label">Academic</span>
               <h3>Study together</h3>
-              <p class="event-meta">Friday, 3:00 PM &middot; Library</p>
-              <p>Bring your notes and work through your next assignment with other students.</p>
+              <p class="event-meta" data-searchable>Friday, 3:00 PM &middot; Library</p>
+              <p data-searchable>Bring your notes and work through your next assignment with other students.</p>
               <button type="button" class="btn btn-outline-primary" data-details-toggle aria-expanded="false" aria-controls="study-details">View details</button>
               <div id="study-details" class="event-details" hidden>
-                <p>This example is an informal study session. Bring your own materials and choose a quiet table with your group.</p>
+                <p data-searchable>This example is an informal study session. Bring your own materials and choose a quiet table with your group.</p>
               </div>
             </div>
           </article>
-          <noscript><p class="status-note">Turn on JavaScript to expand event details. Event summaries are available above.</p></noscript>
+          </div>
+          <p id="event-empty" class="panel status-note empty-results" hidden>No events match your filters. Try another search or choose Clear filters.</p>
+          <noscript><p class="status-note">All event summaries are shown. Turn on JavaScript to filter events and expand their details.</p></noscript>
         </section>
       </div>
 

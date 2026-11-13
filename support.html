@@ -19,11 +19,22 @@
     <p class="sample-notice"><span class="badge rounded-pill sample-badge">Sample directory</span> Services and office information below are examples.</p>
     <div class="row g-4">
       <div class="col-lg-6">
-        <!-- Directory cards will later be searchable by service and category. -->
+        <!-- Keep example services in HTML so they remain available without JavaScript. -->
         <section aria-labelledby="services-heading">
           <div class="section-heading"><div><p class="eyebrow">Start here</p><h2 id="services-heading">Support services</h2></div></div>
-          <article class="panel service-card"><span class="category-label">Financial</span><h3>Financial Aid</h3><p>Ask about financial aid applications, scholarships, and understanding your aid offer.</p><dl class="office-details"><div><dt>Office</dt><dd>Student Services, Room 101</dd></div><div><dt>Hours</dt><dd>Monday–Friday, 9:00 AM–4:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form">Contact a department</a></article>
-          <article class="panel service-card"><span class="category-label">Academic</span><h3>Writing Center</h3><p>Talk through an outline, organize your ideas, or get feedback on a draft.</p><dl class="office-details"><div><dt>Office</dt><dd>Library, Room 204</dd></div><div><dt>Hours</dt><dd>Monday–Friday, 10:00 AM–5:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form">Contact a department</a></article>
+          <form id="service-filters" class="panel filter-panel" role="search" aria-label="Filter campus services" hidden>
+            <div class="row g-3 align-items-end">
+              <div class="col-sm-7"><label class="form-label" for="service-search">Search services</label><input id="service-search" class="form-control" type="search" placeholder="Service, location, or keyword" aria-controls="service-results"></div>
+              <div class="col-sm-5"><label class="form-label" for="service-category">Category</label><select id="service-category" class="form-select" aria-controls="service-results"><option value="all">All services</option><option value="financial">Financial</option><option value="academic">Academic</option></select></div>
+            </div>
+            <button id="service-clear" class="btn btn-outline-primary" type="button">Clear filters</button>
+          </form>
+          <p id="service-status" class="small-note results-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+          <div id="service-results">
+            <article class="panel service-card" data-category="financial"><span class="category-label">Financial</span><h3>Financial Aid</h3><p data-searchable>Ask about financial aid applications, scholarships, and understanding your aid offer.</p><dl class="office-details" data-searchable><div><dt>Office</dt><dd>Student Services, Room 101</dd></div><div><dt>Hours</dt><dd>Monday-Friday, 9:00 AM-4:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form">Contact a department</a></article>
+            <article class="panel service-card" data-category="academic"><span class="category-label">Academic</span><h3>Writing Center</h3><p data-searchable>Talk through an outline, organize your ideas, or get feedback on a draft.</p><dl class="office-details" data-searchable><div><dt>Office</dt><dd>Library, Room 204</dd></div><div><dt>Hours</dt><dd>Monday-Friday, 10:00 AM-5:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form">Contact a department</a></article>
+          </div>
+          <p id="service-empty" class="panel status-note empty-results" hidden>No services match your filters. Try another search or choose Clear filters.</p>
         </section>
       </div>
       <div class="col-lg-6">
