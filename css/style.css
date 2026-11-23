@@ -1,0 +1,124 @@
+/* Shared colors and typography customize the Bootstrap foundation. */
+:root {
+  --campus-green: #204c3c;
+  --campus-green-dark: #16372b;
+  --campus-paper: #f7f8f4;
+  --campus-ink: #23362d;
+  --campus-muted: #5d6b62;
+  --campus-line: #dce3dc;
+  --campus-tint: #eaf0e8;
+}
+
+body {
+  margin: 0;
+  color: var(--campus-ink);
+  background: var(--campus-paper);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+}
+
+a { color: var(--campus-green); text-underline-offset: 0.2em; }
+a:hover { color: var(--campus-green-dark); }
+h1, h2, h3 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.04em; }
+h2 { font-size: 1.45rem; font-weight: 700; margin-bottom: 1.1rem; }
+h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.65rem; }
+p:last-child { margin-bottom: 0; }
+/* Card display rules must not override the hidden state used by filters. */
+[hidden] { display: none !important; }
+
+/* Visible focus and a skip link support keyboard navigation. */
+:focus-visible { outline: 3px solid #a45d14; outline-offset: 4px; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 100; padding: 0.7rem 1rem; background: white; color: var(--campus-green); }
+.skip-link:focus { top: 0.5rem; }
+
+.site-header { background: white; border-bottom: 1px solid var(--campus-line); }
+.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding-top: 1.3rem; padding-bottom: 1.3rem; }
+.site-brand { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.04em; text-decoration: none; white-space: nowrap; }
+.site-brand span { font-weight: 400; margin-left: 0.2rem; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0; }
+.site-nav a { display: block; padding: 0.55rem 0.9rem; color: var(--campus-muted); border-radius: 0.4rem; text-decoration: none; font-size: 0.95rem; }
+.site-nav a:hover { background: var(--campus-paper); color: var(--campus-green); }
+.site-nav a[aria-current="page"] { color: var(--campus-green); background: var(--campus-tint); font-weight: 700; }
+
+.page-content { padding-top: 3.2rem; padding-bottom: 4rem; min-height: 70vh; }
+.page-heading { max-width: 48rem; margin-bottom: 1.8rem; }
+.page-intro { color: var(--campus-muted); font-size: 1.05rem; max-width: 42rem; margin-top: 1rem; }
+.eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--campus-green); margin-bottom: 0.7rem; }
+.sample-notice { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; color: var(--campus-muted); font-size: 0.85rem; }
+.sample-badge { background: var(--campus-tint); color: var(--campus-green); font-weight: 600; padding: 0.45rem 0.65rem; }
+.small-note, .event-meta, .status-note { color: var(--campus-muted); font-size: 0.88rem; }
+.section-space { margin-top: 1.7rem; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.4rem; }
+
+/* Panels, event cards, and menus follow the sections in the submitted wireframe. */
+.panel { padding: 1.6rem; background: white; border: 1px solid var(--campus-line); border-radius: 0.6rem; }
+.announcement-panel { background: var(--campus-tint); border-color: #d7e1d3; }
+.text-link { font-size: 0.9rem; font-weight: 700; }
+.text-link span { margin-left: 0.35rem; }
+.card { border: 1px solid var(--campus-line); border-radius: 0.6rem; overflow: hidden; }
+.card-body { padding: 1.4rem; }
+.event-card { display: grid; grid-template-columns: 9rem minmax(0, 1fr); margin-top: 1rem; }
+.event-image, .menu-image { display: flex; align-items: center; justify-content: center; padding: 1rem; background: #e4eade; color: #52634d; font-size: 0.75rem; text-align: center; }
+.event-image-secondary { background: #e6e8df; }
+.menu-image { min-height: 9rem; background: #e9e7da; }
+.category-label { display: inline-block; color: var(--campus-green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.event-meta { margin-bottom: 0.7rem; }
+.event-details { border-top: 1px solid var(--campus-line); margin-top: 1rem; padding-top: 1rem; font-size: 0.9rem; }
+.weather-temperature { font-size: 3.7rem; line-height: 1.1; font-weight: 700; margin: 1.2rem 0; }
+.weather-credit { margin-top: 1.2rem; }
+.quick-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-decoration: none; padding: 1rem 0; border-top: 1px solid var(--campus-line); }
+.quick-link:hover strong { text-decoration: underline; }
+.quick-link strong, .quick-link small { display: block; }
+.quick-link strong { font-size: 0.95rem; }
+.quick-link small { color: var(--campus-muted); margin-top: 0.15rem; }
+.hours-list div, .office-details div { padding: 0.7rem 0; border-top: 1px solid var(--campus-line); }
+.hours-list dt, .office-details dt { font-size: 0.85rem; }
+.hours-list dd, .office-details dd { margin-bottom: 0; color: var(--campus-muted); font-size: 0.9rem; }
+.service-card + .service-card { margin-top: 1rem; }
+.contact-panel { scroll-margin-top: 1.5rem; }
+#contact-form { scroll-margin-top: 1.5rem; }
+.form-label { font-size: 0.9rem; font-weight: 700; }
+.filter-panel { margin-bottom: 0.8rem; }
+.filter-panel > .btn { margin-top: 1rem; }
+.results-status { margin-bottom: 1rem; }
+.empty-results { margin-top: 1rem; }
+.menu-help { margin-top: 1rem; margin-bottom: 0; }
+
+/* Both button variants use the same campus palette. */
+.btn-primary {
+  --bs-btn-bg: var(--campus-green);
+  --bs-btn-border-color: var(--campus-green);
+  --bs-btn-hover-bg: var(--campus-green-dark);
+  --bs-btn-hover-border-color: var(--campus-green-dark);
+  --bs-btn-active-bg: var(--campus-green-dark);
+  --bs-btn-active-border-color: var(--campus-green-dark);
+  --bs-btn-disabled-bg: var(--campus-green);
+  --bs-btn-disabled-border-color: var(--campus-green);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--campus-green);
+  --bs-btn-border-color: var(--campus-green);
+  --bs-btn-hover-bg: var(--campus-green);
+  --bs-btn-hover-border-color: var(--campus-green);
+  --bs-btn-active-bg: var(--campus-green-dark);
+  --bs-btn-active-border-color: var(--campus-green-dark);
+}
+.btn { font-size: 0.88rem; padding: 0.55rem 0.9rem; border-radius: 0.35rem; }
+.site-footer { border-top: 1px solid var(--campus-line); background: white; padding: 1.8rem 0; font-size: 0.85rem; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.footer-inner p { margin: 0; }
+
+/* Bootstrap stacks the page columns; these rules adapt the shared details. */
+@media (max-width: 767.98px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .site-nav { gap: 0.15rem; }
+  .site-nav a { padding: 0.6rem 0.7rem; }
+  .page-content { padding-top: 2rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 479.98px) {
+  .event-card { grid-template-columns: minmax(0, 1fr); }
+  .event-image { min-height: 6rem; }
+  .panel, .card-body { padding: 1.2rem; }
+}

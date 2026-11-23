@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find sample campus support services, office information, and a department contact form.">
+  <title>Campus Support | Campus Connect</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <script src="js/contact-config.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header"><div class="container header-inner"><a class="site-brand" href="index.html">Campus<span>Connect</span></a><nav aria-label="Main navigation"><ul class="site-nav"><li><a href="index.html">Home</a></li><li><a href="dining.html">Dining</a></li><li><a href="support.html" aria-current="page">Campus Support</a></li></ul></nav></div></header>
+
+  <main id="main-content" class="container page-content" tabindex="-1">
+    <div class="page-heading"><p class="eyebrow">You don’t have to figure it out alone.</p><h1>Find campus help</h1><p class="page-intro">Find the right department, see what they offer, and plan your next step.</p></div>
+    <p class="sample-notice"><span class="badge rounded-pill sample-badge">Sample directory</span> Services and office information below are examples.</p>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <!-- Keep example services in HTML so they remain available without JavaScript. -->
+        <section aria-labelledby="services-heading">
+          <div class="section-heading"><div><p class="eyebrow">Start here</p><h2 id="services-heading">Support services</h2></div></div>
+          <form id="service-filters" class="panel filter-panel" role="search" aria-label="Filter campus services" hidden>
+            <div class="row g-3 align-items-end">
+              <div class="col-sm-7"><label class="form-label" for="service-search">Search services</label><input id="service-search" class="form-control" type="search" placeholder="Service, location, or keyword" aria-controls="service-results"></div>
+              <div class="col-sm-5"><label class="form-label" for="service-category">Category</label><select id="service-category" class="form-select" aria-controls="service-results"><option value="all">All services</option><option value="financial">Financial</option><option value="academic">Academic</option></select></div>
+            </div>
+            <button id="service-clear" class="btn btn-outline-primary" type="button">Clear filters</button>
+          </form>
+          <p id="service-status" class="small-note results-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+          <div id="service-results">
+            <article class="panel service-card" data-category="financial"><span class="category-label">Financial</span><h3>Financial Aid</h3><p data-searchable>Ask about financial aid applications, scholarships, and understanding your aid offer.</p><dl class="office-details" data-searchable><div><dt>Office</dt><dd>Student Services, Room 101</dd></div><div><dt>Hours</dt><dd>Monday-Friday, 9:00 AM-4:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form" data-contact-department="financial-aid">Contact Financial Aid</a></article>
+            <article class="panel service-card" data-category="academic"><span class="category-label">Academic</span><h3>Writing Center</h3><p data-searchable>Talk through an outline, organize your ideas, or get feedback on a draft.</p><dl class="office-details" data-searchable><div><dt>Office</dt><dd>Library, Room 204</dd></div><div><dt>Hours</dt><dd>Monday-Friday, 10:00 AM-5:00 PM</dd></div></dl><p class="small-note">Staff email and phone: to be confirmed.</p><a class="btn btn-outline-primary" href="#contact-form" data-contact-department="writing-center">Contact Writing Center</a></article>
+          </div>
+          <p id="service-empty" class="panel status-note empty-results" hidden>No services match your filters. Try another search or choose Clear filters.</p>
+        </section>
+      </div>
+      <div class="col-lg-6">
+        <section class="panel contact-panel" aria-labelledby="contact-heading">
+          <p class="eyebrow">Get in touch</p><h2 id="contact-heading">Contact a department</h2>
+          <p id="contact-help" class="small-note">All fields are required. This MVP lets you check a message; delivery is not connected.</p>
+          <p id="contact-status" class="status-note" role="status" aria-live="polite" aria-atomic="true">Turn on JavaScript to check your message. Nothing will be sent.</p>
+          <!-- Enable controls only after the submit handler has been attached. -->
+          <form id="contact-form" aria-describedby="contact-help contact-status">
+            <fieldset disabled>
+              <legend class="visually-hidden">Department message</legend>
+              <div class="mb-3"><label for="department" class="form-label">Department</label><select id="department" name="department" class="form-select" required><option value="">Choose a department</option><option value="financial-aid">Financial Aid</option><option value="writing-center">Writing Center</option></select></div>
+              <div class="row g-3 mb-3"><div class="col-sm-6"><label for="contact-name" class="form-label">Name</label><input id="contact-name" name="name" type="text" class="form-control" autocomplete="name" required></div><div class="col-sm-6"><label for="contact-email" class="form-label">Email</label><input id="contact-email" name="email" type="email" class="form-control" autocomplete="email" required></div></div>
+              <div class="mb-3"><label for="contact-subject" class="form-label">Subject</label><input id="contact-subject" name="subject" type="text" class="form-control" required></div>
+              <div class="mb-3"><label for="contact-message" class="form-label">Message</label><textarea id="contact-message" name="message" rows="5" class="form-control" required></textarea></div>
+              <button id="contact-submit" type="submit" class="btn btn-primary">Check message</button>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><p><strong>Campus Connect</strong><br>A place to find your way around campus.</p><p class="small-note">Student project &middot; Sample campus content</p></div></footer>
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
+</body>
+</html>
